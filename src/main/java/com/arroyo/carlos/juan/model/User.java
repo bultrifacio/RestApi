@@ -1,5 +1,7 @@
 package com.arroyo.carlos.juan.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +21,6 @@ public class User {
 	@JsonIgnore
 	private String password;
 	
-	@OneToMany
 	private Role role;
 	
 	private User() {}
@@ -57,6 +58,7 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
 	
 	
 	
