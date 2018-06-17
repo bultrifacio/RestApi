@@ -1,5 +1,6 @@
 package com.arroyo.carlos.juan.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,17 +11,22 @@ public class Customer {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "id", unique = true, nullable = false)
 	private long id;
 	
+	@Column(name = "customerName", nullable = false)
 	private String name;
 	
+	@Column(name = "surname", nullable = false)
 	private String surname;
 	
+	@Column(name = "photoURL")
 	private String photoUrl;
 	
-	@OneToOne
+	@Column(name = "creatorUserId", nullable = false)
 	private Long creatorUserId;
 	
+	@Column(name = "lastModificationUserId", nullable = false)
 	private Long lastModificationUserId;
 	
 	private Customer() {}

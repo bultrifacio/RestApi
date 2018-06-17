@@ -1,34 +1,38 @@
 package com.arroyo.carlos.juan.model;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "users")
 public class User {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "id", unique = true, nullable = false)
 	private long id;
 	
+	@Column(name = "userName", unique = true, nullable = false)
 	private String username;
 	
 	@JsonIgnore
+	@Column(name = "password", nullable = false)
 	private String password;
 	
-	private Role role;
+	@Column(name = "roleId", nullable = false)
+	private Long roleId;
 	
 	private User() {}
 	
-	public User(final String username, final String password, final Role role) {
+	public User(final String username, final String password, final Long roleId) {
 		this.username = username;
 		this.password = password;
-		this.role = role;
+		this.roleId = roleId;
 	}
 
 	public long getId() {
@@ -51,12 +55,12 @@ public class User {
 		return password;
 	}
 
-	public Role getRole() {
-		return role;
+	public Long getRoleId() {
+		return roleId;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
 	}
 
 	
