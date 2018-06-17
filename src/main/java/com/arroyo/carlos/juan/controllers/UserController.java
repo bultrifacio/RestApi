@@ -18,6 +18,7 @@ public class UserController {
 
 	private UserRepository userRepository;
 	private User user;
+
 	@Autowired
 	public UserController(UserRepository userRepository) {
 		this.userRepository = userRepository;
@@ -49,7 +50,7 @@ public class UserController {
 			return true;
 		}
 		return false;
-		
+
 	}
 
 	@RequestMapping(method = RequestMethod.PATCH, value = "/users/{id}")
@@ -66,8 +67,6 @@ public class UserController {
 			return true;
 		}
 		return false;
-		
 	}
-	
 
 }
