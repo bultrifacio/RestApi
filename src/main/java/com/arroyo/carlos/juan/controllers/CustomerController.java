@@ -13,19 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.arroyo.carlos.juan.model.Customer;
 import com.arroyo.carlos.juan.model.User;
 import com.arroyo.carlos.juan.repository.CustomerRepository;
-import com.arroyo.carlos.juan.repository.UserRepository;
 
 @RestController
 public class CustomerController {
 	
 	private CustomerRepository customerRepository;
-	private UserRepository userRepository;
 	private Customer customer;
 	
 	@Autowired
-	public CustomerController(CustomerRepository customerRepository, UserRepository userRepository) {
+	public CustomerController(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
-		this.userRepository = userRepository;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/customers")
