@@ -1,0 +1,10 @@
+insert into roles (id, roleName) values (1, 'SYSADMIN')
+insert into roles (id, roleName) values (2, 'ADMIN')
+insert into roles (id, roleName) values (3, 'USER')
+insert into users (id, userName, password, roleId) values (1, 'admin', 'admin', 1)
+insert into users (id, userName, password, roleId) values (2, 'user', 'user', 3)
+insert into customers (id, customerName, surname, photoURL, creatorUserId, lastModifitacionUserId) values (1, 'Customer1', 'Custom','https://openclipart.org/download/247324/abstract-user-flat-1.svg', 1, 2)
+insert into customers (id, customerName, surname, photoURL, creatorUserId, lastModifitacionUserId) values (2, 'Customer2', 'Custom','https://openclipart.org/download/247324/abstract-user-flat-1.svg', 1, 1)
+insert into customers (id, customerName, surname, photoURL, creatorUserId, lastModifitacionUserId) values (3, 'Customer3', 'Custom','https://openclipart.org/download/247324/abstract-user-flat-1.svg', 2, 1)
+insert into customers (id, customerName, surname, photoURL, creatorUserId, lastModifitacionUserId) values (4, 'Customer4', 'Custom','https://openclipart.org/download/247324/abstract-user-flat-1.svg', 2, 2)
+
