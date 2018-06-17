@@ -37,7 +37,7 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST, value = "/users")
 	public void createUser(@RequestBody User user) {
 		this.user = null;
-		this.user.setRole(user.getRole());
+		this.user.setRoleId(user.getRoleId());
 		this.user.setUsername(user.getUsername());
 		this.user.setPassword(user.getPassword());
 		userRepository.save(this.user);
@@ -59,8 +59,8 @@ public class UserController {
 			this.user = userRepository.findById(id).get();
 			if (user.getUsername() != null && user.getUsername() != this.user.getUsername())
 				this.user.setUsername(user.getUsername());
-			if (user.getRole() != null && user.getRole().getId() != this.user.getRole().getId())
-				this.user.setRole(user.getRole());
+			if (user.getRoleId() != null && user.getRoleId() != this.user.getRoleId())
+				this.user.setRoleId(user.getRoleId());
 			if (user.getPassword() != null && user.getPassword() != this.user.getPassword())
 				this.user.setPassword(user.getPassword());
 			userRepository.save(this.user);
