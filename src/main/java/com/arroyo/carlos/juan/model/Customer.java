@@ -19,21 +19,25 @@ public class Customer {
 	private String photoUrl;
 	
 	@OneToOne
-	private User userWhoCreated;
+	private Long creatorUserId;
 	
-	private User lastUserWhoModified;
+	private Long lastModificationUserId;
 	
 	private Customer() {}
 	
-	public Customer(final String name, final String surname) {
+	public Customer(final String name, final String surname, final Long creatorUserId, final Long lastModificationUserId) {
 		this.name = name;
 		this.surname = surname;
+		this.creatorUserId = creatorUserId;
+		this.lastModificationUserId = lastModificationUserId;
 	}
 	
-	public Customer(final String name, final String surname, final String photoUrl) {
+	public Customer(final String name, final String surname, final String photoUrl, final Long creatorUserId, final Long lastModificationUserId) {
 		this.name = name;
 		this.surname = surname;
 		this.photoUrl = photoUrl;
+		this.creatorUserId = creatorUserId;
+		this.lastModificationUserId = lastModificationUserId;
 	}
 
 	public long getId() {
@@ -52,17 +56,11 @@ public class Customer {
 		return photoUrl;
 	}
 
-	public User getUserWhoCreated() {
-		return userWhoCreated;
-	}
-
-	public User getLastUserWhoModified() {
-		return lastUserWhoModified;
-	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public void setSurname(String surname) {
 		this.surname = surname;
@@ -72,8 +70,17 @@ public class Customer {
 		this.photoUrl = photoUrl;
 	}
 
-	public void setLastUserWhoModified(User lastUserWhoModified) {
-		this.lastUserWhoModified = lastUserWhoModified;
+	public Long getCreatorUserId() {
+		return creatorUserId;
 	}
+
+	public Long getLastModificationUserId() {
+		return lastModificationUserId;
+	}
+
+	public void setLastModificationUserId(Long lastModificationUserId) {
+		this.lastModificationUserId = lastModificationUserId;
+	}
+
 	
 }
