@@ -1,5 +1,7 @@
 package com.arroyo.carlos.juan.model;
 
+import static javax.persistence.GenerationType.AUTO;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,48 +11,48 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customers")
 public class Customer {
-
+	
 	@Id
-	@GeneratedValue
-	@Column(name = "id", unique = true, nullable = false)
-	private long id;
-
+	@GeneratedValue(strategy = AUTO)
+	@Column(name = "id", updatable = false, nullable = false, unique = true)
+	private Long id;
+	
 	@Column(name = "customer_name", nullable = false)
 	private String name;
-
-	@Column(name = "surname", nullable = false)
+	
+	@Column(nullable = false)
 	private String surname;
-
+	
 	@Column(name = "photo_url")
-	private String photoUrl;
-
-	@Column(name = "creator_user_id", nullable = false)
+	private String photoURL;
+	
+	@Column(name = "creator_user_id", updatable = false)
 	private Long creatorUserId;
-
-	@Column(name = "last_modifitacion_user_id", nullable = false)
+	
+	@Column(name = "last_modification_user_id")
 	private Long lastModificationUserId;
-
-	private Customer() {
-	}
-
-	public Customer(final String name, final String surname, final Long creatorUserId,
-			final Long lastModificationUserId) {
+	
+	public Customer() {}
+	
+	public Customer(String name, String surname, Long creatorUserId, Long lastModificationUserId) {
+		super();
 		this.name = name;
 		this.surname = surname;
 		this.creatorUserId = creatorUserId;
 		this.lastModificationUserId = lastModificationUserId;
 	}
 
-	public Customer(final String name, final String surname, final String photoUrl, final Long creatorUserId,
-			final Long lastModificationUserId) {
+	public Customer(String name, String surname, String photoURL, Long creatorUserId,
+			Long lastModificationUserId) {
+		super();
 		this.name = name;
 		this.surname = surname;
-		this.photoUrl = photoUrl;
+		this.photoURL = photoURL;
 		this.creatorUserId = creatorUserId;
 		this.lastModificationUserId = lastModificationUserId;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -62,20 +64,8 @@ public class Customer {
 		return surname;
 	}
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
+	public String getPhotoURL() {
+		return photoURL;
 	}
 
 	public Long getCreatorUserId() {
@@ -86,8 +76,25 @@ public class Customer {
 		return lastModificationUserId;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
+	}
+
+	public void setCreatorUserId(Long creatorUserId) {
+		this.creatorUserId = creatorUserId;
+	}
+
 	public void setLastModificationUserId(Long lastModificationUserId) {
 		this.lastModificationUserId = lastModificationUserId;
 	}
 
+	
 }
