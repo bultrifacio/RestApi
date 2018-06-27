@@ -1,4 +1,4 @@
-package com.arroyo.carlos.juan.repository;
+package com.arroyo.carlos.juan.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
